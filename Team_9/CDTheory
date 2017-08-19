@@ -1,0 +1,37 @@
+( event ev-1 ( do Rabbit ( MTRANS st-7 ( head Rabbit ) ... ) ) )
+( state st-7 ( runs Rabbit fast ) )
+( state st-1 ( behaviour Rabbit proud ) )
+( sametime st-1 ev-1 )
+
+( event ev-3 ( do Rabbit ( MTRANS st-2 ( head Rabbit ) ( head Turtle ) ) ) )
+( state st-2 ( speed Turle slow ) )
+( precede ev-1 ev-3 )
+
+( event ev-4 ( do Rabbit ( MBUILD ( move legs fast ) ) ) )
+( event ev-5 ( do Turtle ( MBUILD ( move legs fast ) ) ) )
+( precede ev-3 ev-4 )
+( sametime ev-4 ev-5 )
+
+( event ev-6 ( raced Rabbit ahead ) )
+( precede ev-4 ev-6 )
+
+( event ev-7 ( do Rabbit ( MBUILD ( take Rabbit nap ) ) ) )
+( state st-3 ( speed Turtle slow ) )
+( precede ev-6 ev-7 )
+( reason ev-7 st-3 )
+
+( event ev-8 ( do Turtle ( MOVE legs destination ) ) )
+( event ev-9 ( won Turtle ... ) )
+( precede ev-7 ev-8 )
+( result ev-8 ev-9 )
+
+( event ev-10 ( do Rabbit ( attend eyes world ) ) )
+( precede ev-8 ev-10 )
+
+( event ev-11 ( do Rabbit ( notattend eyes ( loc Turtle ) ) ) )
+( precede ev-10 ev-11 )
+
+( event ev-12 ( do Rabbit ( MOVE legs destination ) ) )
+( event ev-13 ( do Rabbit ( attend eyes ( waiting Turtle ) ) ) )
+( precede ev-11 ev-12 )
+( sametime ev-12 ev-13 )

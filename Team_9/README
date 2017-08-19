@@ -1,0 +1,7 @@
+The code can be compiled as follows
+g++ -o conversion conversion.cpp
+
+The code can be compiled as follows
+./conversion
+
+The Conceptualization is given in the file named "CDTheory"
